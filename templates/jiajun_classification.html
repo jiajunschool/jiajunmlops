@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushroom Classification</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Jia Jun Mushroom Classification Form</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="cap-shape">Cap Shape</label>
+                <input type="text" class="form-control" id="cap-shape" name="cap-shape" required>
+            </div>
+            <div class="form-group">
+                <label for="cap-surface">Cap Surface</label>
+                <input type="text" class="form-control" id="cap-surface" name="cap-surface" required>
+            </div>
+            <div class="form-group">
+                <label for="cap-color">Cap Color</label>
+                <input type="text" class="form-control" id="cap-color" name="cap-color" required>
+            </div>
+            <div class="form-group">
+                <label for="bruises">Bruises</label>
+                <input type="text" class="form-control" id="bruises" name="bruises" required>
+            </div>
+            <div class="form-group">
+                <label for="odor">Odor</label>
+                <input type="text" class="form-control" id="odor" name="odor" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% if prediction %}
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Prediction</h4>
+                <p>Prediction: {{ prediction }}</p>
+                <p>Confidence: {{ score }}</p>
+            </div>
+        {% endif %}
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
